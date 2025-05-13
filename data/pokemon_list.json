@@ -152,5 +152,19 @@
             "sticky-hold",
             "gluttony"
         ]
+    },
+    {
+        "id": 224,
+        "name": "octillery",
+        "height": 9,
+        "weight": 285,
+        "types": [
+            "water"
+        ],
+        "abilities": [
+            "suction-cups",
+            "sniper",
+            "moody"
+        ]
     }
 ]
