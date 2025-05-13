@@ -1,13 +1,22 @@
-# main.py
+"""
+    Pokemon Card Draw Game
+    This is a simple game where users can draw random Pokemon cards.
+    The game will display a random Pokemon card and check for duplicates.
+    The game will continue until the user decides to stop.
+"""
+
+import random
 from core.api import get_basic_pokemon_info
 from core.display import welcome, ask_draw, draw_animation, say_goodbye
 from core.storage import load_pokemon_list, check_duplicate
 import metadata
-import random
-import time
 
 
 def main():
+    """
+    Main function to run the Pokemon Card Draw Game.
+    It initializes the game, loads the Pokemon list, and handles user input.
+    """
     welcome()
     pokemon_list = load_pokemon_list()
 
