@@ -1,22 +1,26 @@
-import requests
-import json
-import metadata
-import random
-import os
+""" This script fetches Pokémon data from the Pokémon API and saves it to a JSON file. """
 import time
+import json
+import random
+import requests
+import metadata
 import my_pokemons
 
 
 print("\n*** Welcome to the Pokémon API ***")
 
-flag = True
+FLAG = True
+
 
 # Get the Pokémon list from the API
 def get_basic_pokemon_info(pokemon_id, my_pokemon_list):
+    """
+    Fetches basic information about a Pokémon from the API and saves it to a JSON file.
+    """
     url = (
         metadata.BASE_URL + metadata.ENDPOINTS["pokemon"] + pokemon_id
     )  # Base URL + Pokémon endpoint + Pokémon ID
-    response = requests.get(url)  # Pokémon API request
+    response = requests.get(url, timeout=10)  # Pokémon API request
 
     # Check if the response is successful
     if response.status_code != 200:
@@ -64,7 +68,7 @@ def get_basic_pokemon_info(pokemon_id, my_pokemon_list):
 
 
 # Interactive loop to ask the user if they want to draw a Pokémon or fetch the list, and continue or exit
-while flag:
+while FLAG:
     is_draw = (
         input("\n> Do you want to draw a Pokémon? (y/n): ").strip().lower()
     )  # Ask the user if they want to draw a Pokémon
@@ -79,10 +83,14 @@ while flag:
             print(".")
             time.sleep(2)
 
-        random_num = random.randint(1, metadata.POKEMON_COUNT)  # Generate a random Pokémon ID
-        random_num = 788 # For testing purposes, set a specific Pokémon ID
+        random_num = random.randint(
+            1, metadata.POKEMON_COUNT
+        )  # Generate a random Pokémon ID
+        random_num = 788  # For testing purposes, set a specific Pokémon ID
 
-        pokemon_list = my_pokemons.find_pokemon(random_num)  # Call the function to find a Pokémon with the random ID
+        pokemon_list = my_pokemons.find_pokemon(
+            random_num
+        )  # Call the function to find a Pokémon with the random ID
 
         if pokemon_list:  # If the Pokémon is not found
             print("\n**************************")
@@ -102,8 +110,8 @@ while flag:
         print("\nOk goodbye!")
 
     # Ask the user if they want to continue or exit
-    flag = input("\n> Do you want to continue? (y/n): ").strip().lower() == "y"
-    if not flag:  # If the user doesn't want to continue
+    FLAG = input("\n> Do you want to continue? (y/n): ").strip().lower() == "y"
+    if not FLAG:  # If the user doesn't want to continue
         print("\n**************************")
         print("Goodbye, closing the program...")
 
@@ -113,4 +121,4 @@ while flag:
 
         print("\nDone!")
         # break  # End of the program
-        flag = False
+        FLAG = False

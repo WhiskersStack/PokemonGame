@@ -18,4 +18,4 @@ ENDPOINTS = {
     "version_group": "version-group/",
 }
 
-POKEMON_COUNT = 1302 # Total number of Pokemon in the API
+POKEMON_COUNT = 1302  # Total number of Pokemon in the API
