@@ -47,16 +47,9 @@ except client.exceptions.ClientError as e:
         raise
 
 # 3. Get Latest Ubuntu 22.04 AMI
-images = client.describe_images(
-    Owners=['099720109477'],
-    Filters=[
-        {'Name': 'name', 'Values': [
-            'ubuntu/images/hvm-ssd/ubuntu-22.04-amd64-server-*']},
-        {'Name': 'state', 'Values': ['available']}
-    ]
-)['Images']
-latest_ami = sorted(images, key=lambda x: x['CreationDate'], reverse=True)[0]
-ami_id = latest_ami['ImageId']
+ami_id = 'ami-04c7330a29e61bbca'
+print(f'✅ Using manually selected AMI: {ami_id}')
+
 print(f'✅ Using latest Ubuntu AMI: {ami_id}')
 
 # 4. Launch EC2 Instance
