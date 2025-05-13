@@ -138,5 +138,19 @@
         "abilities": [
             "no-guard"
         ]
+    },
+    {
+        "id": 317,
+        "name": "swalot",
+        "height": 17,
+        "weight": 800,
+        "types": [
+            "poison"
+        ],
+        "abilities": [
+            "liquid-ooze",
+            "sticky-hold",
+            "gluttony"
+        ]
     }
 ]
