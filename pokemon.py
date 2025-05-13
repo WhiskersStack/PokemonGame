@@ -9,7 +9,7 @@ import my_pokemons
 
 print("\n*** Welcome to the Pokémon API ***")
 
-FLAG = True
+FLAG = True # Flag to control the loop
 
 
 # Get the Pokémon list from the API
