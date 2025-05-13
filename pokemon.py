@@ -67,7 +67,7 @@ def get_basic_pokemon_info(pokemon_id, my_pokemon_list):
     print("\nPokémon saved to pokemon_list.json")
 
 
-# Interactive loop to ask the user if they want to draw a Pokémon or fetch the list, and continue or exit
+# Interactive loop to ask the user if they want to draw a Pokémon
 while FLAG:
     is_draw = (
         input("\n> Do you want to draw a Pokémon? (y/n): ").strip().lower()

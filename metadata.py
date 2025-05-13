@@ -1,8 +1,6 @@
 """
-
 Pokemon API metadata
 his file contains metadata for the Pokemon API, including the base URL and endpoints.
-
 """
 
 # Base URL for the Pokemon API
