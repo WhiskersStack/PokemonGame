@@ -1,6 +1,7 @@
 import boto3
-
-ec2 = boto3.client("ec2", region_name="us-west-2")
+import os
+import json
+from botocore.exceptions import ClientError
 
 def launch_ec2_instance(ec2):
     # Launch EC2 instance
@@ -17,16 +18,20 @@ def launch_ec2_instance(ec2):
                 "Tags": [
                     {
                         "Key": "Name",
-                        "Value": "test1"
+                        "Value": "test5"
                     }
                 ]
             }
         ]
     )
 
-    # Print instance ID
+    # Print instance security group ID
     instance_id = response["Instances"][0]["InstanceId"]
-    print(f"Launched EC2 Instance ID: {instance_id}")
+    print(f"Instance ID: {instance_id}")
+    print(f"Security Group ID: {response['Instances'][0]['SecurityGroups'][0]['GroupId']}")
+    security_group_id = response["Instances"][0]["SecurityGroups"][0]["GroupId"]
+
+    print(response)
 
 if __name__ == "__main__":
-    launch_ec2_instance(ec2)
+    launch_ec2_instance(boto3.client("ec2", region_name="us-west-2"))
