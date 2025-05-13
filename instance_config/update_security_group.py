@@ -1,22 +1,22 @@
 import boto3
 
-# Initialize EC2 client
-ec2 = boto3.client("ec2", region_name="us-west-2")  # change region if needed
 
-# Your security group ID
-security_group_id = "sg-xxxxxxxx"  # replace with your actual security group ID
+def update_security_group(ec2):
+    # Add SSH (port 22) rule to allow all IPs (0.0.0.0/0)
+    ec2.authorize_security_group_ingress(
+        GroupId="sg-047644bececda0cd3",
+        IpPermissions=[
+            {
+                "IpProtocol": "tcp",
+                "FromPort": 22,
+                "ToPort": 22,
+                "IpRanges": [{"CidrIp": "0.0.0.0/0"}],
+            }
+        ],
+    )
 
-# Add SSH (port 22) rule to allow all IPs (0.0.0.0/0)
-ec2.authorize_security_group_ingress(
-    GroupId=security_group_id,
-    IpPermissions=[
-        {
-            "IpProtocol": "tcp",
-            "FromPort": 22,
-            "ToPort": 22,
-            "IpRanges": [{"CidrIp": "0.0.0.0/0"}],  # or restrict to your IP
-        }
-    ],
-)
+    print("SSH access (port 22) added to security group")
 
-print(f"SSH access (port 22) added to security group {security_group_id}")
+
+if __name__ == "__main__":
+    update_security_group(boto3.client("ec2", region_name="us-west-2"))
