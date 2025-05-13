@@ -125,5 +125,18 @@
             "misty-surge",
             "telepathy"
         ]
+    },
+    {
+        "id": 818,
+        "name": "inteleon",
+        "height": 19,
+        "weight": 452,
+        "types": [
+            "water"
+        ],
+        "abilities": [
+            "torrent",
+            "sniper"
+        ]
     }
 ]
