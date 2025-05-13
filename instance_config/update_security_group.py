@@ -3,19 +3,25 @@ import boto3
 
 def update_security_group(ec2):
     # Add SSH (port 22) rule to allow all IPs (0.0.0.0/0)
-    ec2.authorize_security_group_ingress(
-        GroupId="sg-047644bececda0cd3",
-        IpPermissions=[
-            {
-                "IpProtocol": "tcp",
-                "FromPort": 22,
-                "ToPort": 22,
-                "IpRanges": [{"CidrIp": "0.0.0.0/0"}],
-            }
-        ],
-    )
 
-    print("SSH access (port 22) added to security group")
+    try:
+        ec2.authorize_security_group_ingress(
+            GroupId="sg-047644bececda0cd3",
+            IpPermissions=[
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": 22,
+                    "ToPort": 22,
+                    "IpRanges": [{"CidrIp": "0.0.0.0/0"}],
+                }
+            ],
+        )
+
+        print("SSH access (port 22) added to security group")
+    except Exception as e:
+        print("\n\n\n ************************* \n\n\n")
+        print(f"Error adding SSH access to security group: {e}")
+        print("\n\n\n ************************* \n\n\n")
 
 
 if __name__ == "__main__":

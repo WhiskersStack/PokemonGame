@@ -1,5 +1,6 @@
 import boto3
 import time
+import os
 
 
 def get_public_ip(ec2, instance_id):
@@ -12,6 +13,11 @@ def get_public_ip(ec2, instance_id):
     public_ip = desc["Reservations"][0]["Instances"][0]["PublicIpAddress"]
 
     print("Public IP:", public_ip)
+
+    # Save the public IP address to a file
+    with open("public_ip.txt", "w") as file:
+        file.write(public_ip)
+    print(f"Public IP address saved to public_ip.txt")
 
 
 if __name__ == "__main__":

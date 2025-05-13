@@ -18,7 +18,7 @@ def launch_ec2_instance(ec2):
                 "Tags": [
                     {
                         "Key": "Name",
-                        "Value": "jen"
+                        "Value": "pokemon3",
                     }
                 ]
             }
@@ -31,7 +31,8 @@ def launch_ec2_instance(ec2):
     print(f"Security Group ID: {response['Instances'][0]['SecurityGroups'][0]['GroupId']}")
     security_group_id = response["Instances"][0]["SecurityGroups"][0]["GroupId"]
 
-    print(response)
+
+    return instance_id
 
 if __name__ == "__main__":
     launch_ec2_instance(boto3.client("ec2", region_name="us-west-2"))
