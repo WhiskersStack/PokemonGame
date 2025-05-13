@@ -62,7 +62,7 @@ def get_basic_pokemon_info(pokemon_id, my_pokemon_list):
     time.sleep(1)
 
     # Save the Pokémon info to a JSON file
-    with open("pokemon_list.json", "w") as f:
+    with open("pokemon_list.json", "w", encoding="utf-8") as f:
         json.dump(my_pokemon_list, f, indent=4)
     print("\nPokémon saved to pokemon_list.json")
 
