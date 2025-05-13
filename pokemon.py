@@ -83,18 +83,18 @@ while FLAG:
             print(".")
             time.sleep(2)
 
-        random_num = random.randint(
+        RANDOM_NUM = random.randint(
             1, metadata.POKEMON_COUNT
         )  # Generate a random Pokémon ID
-        random_num = 788  # For testing purposes, set a specific Pokémon ID
+        RANDOM_NUM = 788  # For testing purposes, set a specific Pokémon ID
 
         pokemon_list = my_pokemons.find_pokemon(
-            random_num
+            RANDOM_NUM
         )  # Call the function to find a Pokémon with the random ID
 
         if pokemon_list:  # If the Pokémon is not found
             print("\n**************************")
-            print(f"\nPokémon ID: {random_num}\n")
+            print(f"\nPokémon ID: {RANDOM_NUM}\n")
             time.sleep(1)
             print("Fetching Pokémon info from the API...\n")
 
@@ -103,7 +103,7 @@ while FLAG:
                 time.sleep(2)
 
             get_basic_pokemon_info(
-                str(random_num), pokemon_list
+                str(RANDOM_NUM), pokemon_list
             )  # Call the function to get Pokémon info with the random ID
 
     else:  # If the user doesn't want to draw a Pokémon
