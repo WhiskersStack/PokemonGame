@@ -1,18 +1,19 @@
 import boto3
 from launch_ec2 import launch_ec2_instance
+from update_security_group import update_security_group
+from create_key_pair import create_key_pair
 
-# from create_key_pair import create_key_pair
-# from create_security_group import create_security_group
+
 
 ec2 = boto3.client("ec2", region_name="us-west-2")
 
 
 def main():
     # Create a key pair
-    # create_key_pair()
+    create_key_pair(ec2)
 
-    # Create a security group
-    # create_security_group()
+    # Update security group to allow SSH access
+    update_security_group(ec2)
 
     # Launch an EC2 instance
     launch_ec2_instance(ec2)
