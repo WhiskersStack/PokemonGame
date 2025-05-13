@@ -8,6 +8,7 @@ import time
 
 POKEMON_LIST_PATH = "data/pokemon_list.json"
 
+
 def load_pokemon_list():
     """
     Load the Pokémon list from a JSON file.
@@ -17,6 +18,7 @@ def load_pokemon_list():
             return json.load(f)
     except FileNotFoundError:
         return []
+
 
 def check_duplicate(pokemon_id, data):
     """
