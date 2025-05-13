@@ -138,5 +138,18 @@
             "torrent",
             "sniper"
         ]
+    },
+    {
+        "id": 898,
+        "name": "calyrex",
+        "height": 11,
+        "weight": 77,
+        "types": [
+            "psychic",
+            "grass"
+        ],
+        "abilities": [
+            "unnerve"
+        ]
     }
 ]
