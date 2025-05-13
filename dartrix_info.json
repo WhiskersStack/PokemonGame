@@ -1,0 +1,14 @@
+{
+    "id": 723,
+    "name": "dartrix",
+    "height": 7,
+    "weight": 160,
+    "types": [
+        "grass",
+        "flying"
+    ],
+    "abilities": [
+        "overgrow",
+        "long-reach"
+    ]
+}
