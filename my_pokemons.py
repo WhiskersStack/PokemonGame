@@ -1,13 +1,18 @@
-import json
+""" Look for a Pokémon in the list """
+
 import time
+import json
 
 
-def find_pokemon(id):
-    with open("pokemon_list.json", "r") as f:
+def find_pokemon(pokemon_id):
+    """
+    Check if a Pokémon is already in the list.
+    """
+    with open("pokemon_list.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
         for pokemon in data:
-            if pokemon["id"] == id:
+            if pokemon["id"] == pokemon_id:
                 print("\n~~~ You already have this Pokémon ~~~")
                 time.sleep(1)
                 print(f"\nName: {pokemon['name']}")
