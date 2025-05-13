@@ -86,7 +86,8 @@ while FLAG:
         RANDOM_NUM = random.randint(
             1, metadata.POKEMON_COUNT
         )  # Generate a random Pokémon ID
-        RANDOM_NUM = 788  # For testing purposes, set a specific Pokémon ID
+
+        #RANDOM_NUM = 788  # For testing purposes, set a specific Pokémon ID
 
         pokemon_list = my_pokemons.find_pokemon(
             RANDOM_NUM
