@@ -125,5 +125,18 @@
             "misty-surge",
             "telepathy"
         ]
+    },
+    {
+        "id": 680,
+        "name": "doublade",
+        "height": 8,
+        "weight": 45,
+        "types": [
+            "steel",
+            "ghost"
+        ],
+        "abilities": [
+            "no-guard"
+        ]
     }
 ]
