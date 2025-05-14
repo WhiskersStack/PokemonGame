@@ -1,5 +1,6 @@
 import boto3
 from launch_ec2 import launch_ec2_instance
+from launch_ec2 import security_group_id
 from update_security_group import update_security_group
 from create_key_pair import create_key_pair
 from get_public_ip import get_public_ip
@@ -17,7 +18,7 @@ def main():
     print("EC2 instance launched successfully.")
 
     # Update security group to allow SSH access
-    update_security_group(ec2)
+    update_security_group(ec2, security_group_id)
 
     # Get the public IP address of the instance
     get_public_ip(ec2, instance_id)
@@ -27,3 +28,4 @@ if __name__ == "__main__":
 
 
 # aws ec2 delete-key-pair --key-name MyKeyPair
+# ssh -i MyKeyPair.pem ubuntu@<PublicIP>

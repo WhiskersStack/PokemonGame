@@ -1,12 +1,12 @@
 import boto3
 
 
-def update_security_group(ec2):
+def update_security_group(ec2, security_group_id):
     # Add SSH (port 22) rule to allow all IPs (0.0.0.0/0)
 
     try:
         ec2.authorize_security_group_ingress(
-            GroupId="sg-047644bececda0cd3",
+            GroupId=security_group_id,
             IpPermissions=[
                 {
                     "IpProtocol": "tcp",
